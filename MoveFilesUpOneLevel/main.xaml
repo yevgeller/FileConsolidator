@@ -1,0 +1,48 @@
+﻿<Window x:Class="MoveFilesUpOneLevel.main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:conv="clr-namespace:MoveFilesUpOneLevel.ServiceClasses"
+        Title="main" Height="350" Width="600">
+    <Window.Resources>
+        <conv:BoolToVisibility x:Key="boolToVis" />
+        <conv:BoolToVisibility_Reverse x:Key="boolToVis_Reverse" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+            <Button  x:Name="getSrc" Content="Choose source folder" Margin="6" Click="getSrc_Click" />
+            <TextBlock Text="{Binding SourceDirectory}" TextWrapping="Wrap" />
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="getDest" Content="Choose destination folder" Margin="6" Click="getDest_Click" />
+            <TextBlock Text="{Binding DestinationDirectory}" TextWrapping="Wrap" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button Content="Preview" Command="{Binding PreviewCommand}" Margin="6" />
+            <Button Content="test" Command="{Binding TestCommand}" Margin="6" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <CheckBox Content="Remove resulting empty folders" IsChecked="{Binding DeleteEmptyFoldersOnceDone}"  VerticalAlignment="Center" Margin="6" />
+            <Button Content="Consolidate" Command="{Binding ConsolidateCommand}" Margin="6" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2">
+            <TextBlock Text="{Binding PreviewResults}" />
+        </StackPanel>
+        <ScrollViewer Grid.Column="0" Grid.Row="4" Margin="0,6,0,0">
+            <TextBlock Text="{Binding WillBeMoved}"  />
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="1" Grid.Row="4" Margin="0,6,0,0" >
+            <TextBlock Text="{Binding WillNotBeMoved}"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
