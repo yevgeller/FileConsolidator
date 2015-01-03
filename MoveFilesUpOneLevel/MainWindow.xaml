@@ -1,0 +1,33 @@
+﻿<Window x:Class="MoveFilesUpOneLevel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="getSrc" Content="source" Margin="6" Click="getSrc_Click" />
+            <TextBlock x:Name="gotSrc" />
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="getDest" Content="dest" Margin="6" Click="getDest_Click" />
+            <TextBlock x:Name="gotDest" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <Button Content="Prepare" x:Name="prep" Click="prep_Click" Margin="6" />
+            <Button Content="Do it" x:Name="doIt" Click="doIt_Click" Margin="6" />
+
+        </StackPanel>
+
+        <TextBlock x:Name="willBeChanged" Grid.Column="0" Grid.Row="3" />
+        <TextBlock x:Name="willNotBeChanged" Grid.Column="1" Grid.Row="3" />
+    </Grid>
+</Window>
