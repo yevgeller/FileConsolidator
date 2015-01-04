@@ -29,7 +29,7 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button Content="Preview" Command="{Binding PreviewCommand}" Margin="6" />
-            <Button Content="test" Command="{Binding TestCommand}" Margin="6" />
+            <!--<Button Content="test" Command="{Binding TestCommand}" Margin="6" />-->
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
             <CheckBox Content="Remove resulting empty folders" IsChecked="{Binding DeleteEmptyFoldersOnceDone}"  VerticalAlignment="Center" Margin="6" />
